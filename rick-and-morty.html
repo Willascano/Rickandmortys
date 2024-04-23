@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick and Morty</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+		<div class="navbar-header">
+			<a href="rick-and-morty.html">
+				<img class="logo" src="img/logo.png" alt="Logo Rick & Morty">
+			</a>
+			<ul class="nav navbar-nav">
+				<li><a href="rick-and-morty.html">Inicio</a></li>
+			</ul>
+		</div>
+    </nav>
+		
+	<div class="container">
+		<div class="filter">
+			<p>Filtrar por nombre :</p>
+			<select class="form-select" id="character-filter">
+				<option value="all">Todos</option>
+			</select>
+		</div>
+		<div class="container-cards" id="characters-container">
+		</div>
+	</div>
+    <div class="footer">
+		<p>Todos los derechos reservados</p>
+		<p>Sitio web elaborado por William Lascano y Weinner Palacio</p>
+	</div>
+
+    <script>
+    function loadCharacters(filter = 'all') {
+        $.get('https://rickandmortyapi.com/api/character', function(data) {
+            const characters = data.results.slice(0, 15);
+            let html = '';
+            let filterHtml = '<option value="all">Todos</option>';
+
+            characters.forEach(character => {
+                filterHtml += `<option value="${character.id}" ${filter === character.id.toString() ? 'selected' : ''}>${character.name}</option>`;
+
+                // Añadir tarjetas al HTML
+                if (filter === 'all' || character.id.toString() === filter) {
+					html += `<div class="${filter === character.id.toString() ? 'card-selected' : ''} card">
+							<img src="${character.image}" alt="${character.name}">
+							<h3>${character.name}</h3>
+							<p>Género: ${character.gender}</p>
+							<p>Especie: ${character.species}</p>
+							<p>Estado: ${character.status}</p>
+						</div>
+					`;
+				}
+            });
+
+            $('#character-filter').html(filterHtml);
+            $('#characters-container').html(html);
+        });
+    }
+
+    // Evento para cuando se cambia el valor del filtro
+    $('#character-filter').change(function() {
+        loadCharacters(this.value);
+    });
+
+    // Llamar a la función al cargar la página
+    $(document).ready(function() {
+        loadCharacters();
+    });
+</script>
+
+</body>
+</html>
+

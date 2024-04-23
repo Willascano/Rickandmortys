@@ -1,0 +1,146 @@
+		html, body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+			background-image: url(https://static.wikia.nocookie.net/wiki-de-rick-morty/images/b/b5/Site-background-light/revision/latest/scale-to-width-down/1280?cb=20210720140800&path-prefix=es);
+			height: 100vh;
+        }
+        .container {
+            max-width: 970px;
+            margin: 0 auto;
+            padding: 20px;
+			background-color: #f6f6f6;
+        }
+        .container select {
+			background-color: #fff;
+            padding: 10px;
+			border-radius: 10px;
+			border: 1px solid #ddd;
+			transition-duration: 0.4s;
+        }
+        .container select:hover {
+            border: 1px solid #008CBA;
+        }
+        .container-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+		.filter{
+			margin: 10px;
+		}
+		.filter p{
+			font-weight: 700;
+		}
+        .navbar {
+            background-color: #93ed27;
+			color: #fff;
+			padding: 10px;
+			margin-bottom: 0px;
+			border-color: #08080800;
+			box-shadow: 0 3px 12px 0 #0000004d;
+        }
+		.navbar-header {
+			display: flex;
+			width: 100%;
+		}
+		.navbar-header ul li a {
+			color: black;
+			font-weight: 700;
+			text-decoration: none;
+			display: block;
+			transition-duration: 0.4s;
+		}
+		.navbar-header ul li a:hover {
+			color: #004646;
+			background-color: #00000000;
+		}
+		.navbar-nav {
+			margin: 0 0;
+		}
+		.logo {
+			height: auto;
+			cursor: pointer;
+			width: auto;
+			height: 100%;
+			max-height: 50px;
+			object-fit: contain;
+			margin: 0 20px;
+		}
+        .footer {
+            background-color: #93ed27;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+			box-shadow: 0 -3px 12px 0 #0000004d;
+    bottom: 0;
+    width: 100%;
+	height: 10%;
+	padding: 10px;
+        }
+        .card {
+            border: 1px solid #ddd;
+            margin: 10px;
+            padding: 10px;
+			background-color: #fff;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			border-radius: 10px;
+            flex: 1 1 calc(30% - 30px);
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			transition: border 0.3s ease;
+		}
+		.card:hover {
+			border: 1px solid #008CBA;
+		}
+        .card img {
+            max-width: 100%;
+            height: auto;
+			border-radius: 10px;
+        }
+		.card-selected {
+			flex: 0 1 calc(40% - 20px);
+			transition: flex 0.3s ease;
+		}
+		.button {
+			border: none;
+			color: white;
+			padding: 10px 30px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			transition-duration: 0.4s;
+			cursor: pointer;
+			border-radius: 30px;
+		}
+		.button1 {
+			background-color: white; 
+			color: black; 
+			border: 2px solid #008CBA;
+		}
+
+		.button1:hover {
+			background-color: #008CBA;
+			color: white;
+		}
+		.container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
+			margin-right: 0PX;
+			margin-left: 0px;
+		}
+        @media (max-width: 720px) {
+            .card {
+                flex: 1 1 100%;
+            }
+			.navbar-header {
+				flex-direction: column;
+			}
+			.navbar-header ul li a {
+				color: #004646;
+				background-color: #00000000;
+				margin: 0 20px;
+			}
+        }
